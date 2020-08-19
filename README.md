@@ -1,5 +1,8 @@
 # BCURKit
 
+Inspired by [CoboVault nodejs implementation](https://github.com/CoboVault/cobo-vault-blockchain-base/tree/master/packages/bc-ur)
+
+
 ### Encode
 ``` Swift
 
