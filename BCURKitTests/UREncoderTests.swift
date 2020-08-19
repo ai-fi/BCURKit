@@ -33,12 +33,4 @@ class UREncoderTests: XCTestCase {
         
         XCTAssert(frags[1].uppercased() == "UR:BYTES/2OF2/LMYDZ7N6J7FKV8DY9HV5DUSVVNTLZ4H53KN4ANN85AT3V6L5VN3QPRX8V2/EP4ZYPSZ5ECM4SH3L8GD2XQMFED3MXHXDZ4NKYUCWRXH7PX6ZPCC9K9CVEC337ML0AZ4GQQQSQQQQQYQQQQQPQQQQQQQQQQQQQQQQQQV0R2UH")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
