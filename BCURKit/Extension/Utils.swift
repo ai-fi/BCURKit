@@ -13,11 +13,6 @@ extension Collection where Element == UInt8 {
     var hex: String { self.map { String(format: "%02hhx", $0) }.joined() }
 }
 
-extension SHA256Digest {
-    var data: Data { withUnsafeBytes { Data(bytes: $0.baseAddress!, count: SHA256Digest.byteCount) } }
-    var hex: String { data.hex }
-}
-
 extension UInt32 {
     var data: Data {
         let size = MemoryLayout<UInt32>.size

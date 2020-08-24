@@ -198,12 +198,24 @@ public final class URDecoder {
 
     func parseSequenceComponent(_ s: String) throws -> (seqNum: Int, seqLen: Int) {
         let scanner = Scanner(string: s)
-        guard let seqNum = scanner.scanInt() else { throw Error.invalidSequenceComponent }
-        guard scanner.scanString("of") != nil else { throw Error.invalidSequenceComponent }
-        guard let seqLen = scanner.scanInt() else { throw Error.invalidSequenceComponent }
-        guard scanner.isAtEnd else { throw Error.invalidSequenceComponent }
-        guard seqNum >= 1, seqLen >= 1 else { throw Error.invalidSequenceComponent }
-        return (seqNum, seqLen)
+        
+        if #available(iOS 13.0, *) {
+            guard let seqNum = scanner.scanInt() else { throw Error.invalidSequenceComponent }
+            guard scanner.scanString("of") != nil else { throw Error.invalidSequenceComponent }
+            guard let seqLen = scanner.scanInt() else { throw Error.invalidSequenceComponent }
+            guard scanner.isAtEnd else { throw Error.invalidSequenceComponent }
+            guard seqNum >= 1, seqLen >= 1 else { throw Error.invalidSequenceComponent }
+            return (seqNum, seqLen)
+        } else {
+            var seqNum: Int = 0
+            var seqLen: Int = 0
+            guard scanner.scanInt(&seqNum) else { throw Error.invalidSequenceComponent }
+            guard scanner.scanString("of", into: nil) else { throw Error.invalidSequenceComponent }
+            guard scanner.scanInt(&seqLen) else { throw Error.invalidSequenceComponent }
+            guard scanner.isAtEnd else { throw Error.invalidSequenceComponent }
+            guard seqNum >= 1, seqLen >= 1 else { throw Error.invalidSequenceComponent }
+            return (seqNum, seqLen)
+        }
     }
     
 }
