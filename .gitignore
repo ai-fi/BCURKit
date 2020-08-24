@@ -125,6 +125,7 @@ DerivedData/
 *.xcodeproj/*
 !*.xcodeproj/project.pbxproj
 !*.xcodeproj/project.xcworkspace
+!*.xcodeproj/project.xcworkspace/xcshareddata/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
